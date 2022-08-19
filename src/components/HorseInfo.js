@@ -12,7 +12,7 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 
-import BookmarkIcon from '@mui/icons-material/Bookmark';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const data = [
   { dt: '生年月日', dd: '2016年3月6日' },
@@ -25,19 +25,19 @@ const data = [
 export default function HorseInfo() {
   return (
     <Box sx={{ padding: 1 }}>
-      <Box sx={{ display: "flex", alignItems: "end", paddingBottom: 2 }}>
-        <IconButton>
-          <BookmarkIcon />
-        </IconButton>
-        <Typography component="h2" variant="h6" align="left" gutterBottom
-          sx={{
-            flexGrow: 1,
-            fontFamily: 'Murecho',
-          }}
-        >
-          クロノジェネシス <small>6歳 牝馬 芦毛</small>
-        </Typography>
+      <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+        <Box sx={{ display: "flex", flexDirection: "row", alignItems: 'center' }}>
+          <IconButton>
+            <StarBorderIcon />
+          </IconButton>
+          <Typography variant="h6">
+            クロノジェネシス
+          </Typography>
+        </Box>
+        <Typography variant="body1" textAlign="left" paddingLeft={5}>6歳 牝馬 芦毛</Typography>
       </Box>
+      
+      {/*
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Typography>
@@ -99,7 +99,7 @@ export default function HorseInfo() {
           </Typography>
         </Grid>
       </Grid>
+                */}
     </Box >
-
   )
 }

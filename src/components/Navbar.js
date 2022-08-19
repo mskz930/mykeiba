@@ -4,6 +4,9 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 // 検索バーのstyled component
 const Search = styled('div')(({ theme }) => ({
@@ -41,7 +44,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }))
 
 
-export default function MenuBar() {
+export default function Navbar() {
   const [open, setOpen] = React.useState(false)
 
   const toggleDrawer = (event) => {
@@ -53,27 +56,34 @@ export default function MenuBar() {
 
   return (
     <Box sx={{
-      display: 'flex',
-      alignItems: 'center',
-      height: '40px',
       width: '100%',
-      padding: 1,
+      minHeight: '60px',
+      color: 'white',
       backgroundColor: '#131e40',
-      borderBottom: 1,
     }}>
-      <Typography variant="h6" sx={{ margin: "0 20px", fontSize: 20, fontWeight: 500, color: "white" }}>
-        競馬データベース
-      </Typography>
-      <Search>
-        <SearchIconWrapper>
-          <SearchIcon sx={{ color: 'white' }} />
-        </SearchIconWrapper>
-        <StyledInputBase
-          placeholder="Search..."
-          inputProps={{ 'aria-label': 'search' }}
-          sx={{ color: 'white' }}
-        />
-      </Search>
+      <Box p={1} sx={{
+        display: 'flex',
+        alignItems: 'center',
+      }}>
+        <IconButton color='inherit'><MenuIcon /></IconButton>
+        <Typography
+          variant="h6"
+          sx={{
+            margin: "0 20px",
+            fontSize: 20,
+            fontWeight: 500,
+            color: "white",
+            textAlign: 'left',
+            flexGrow: 1,
+          }}>
+          競馬データベース
+        </Typography>
+        <Button color='inherit'>
+          <Typography>
+            LOGOUT
+          </Typography>
+        </Button>
+      </Box>
     </Box>
   );
 }

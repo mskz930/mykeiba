@@ -19,13 +19,9 @@ const records = [
   { date: '2021/12/26', place: '中山', weather: '晴', raceTitle: "有馬記念", frameNumber: 4, horseNumber: 7, odds: 2.9, popularity: 2, ranking: 3, fieldType: "芝", distance: 2500, time: "2:32.2" },
 ]
 
-export default function BasicTable(props) {
+export default function DataTable(props) {
   return (
-    <Box>
-      <TableContainer component={Paper} sx={{ padding: 1 }}>
-        <Typography align="left" variant="body1" >
-          戦績
-        </Typography>
+      <TableContainer>
         <Table>
           <TableHead>
             <TableRow>
@@ -50,7 +46,21 @@ export default function BasicTable(props) {
                 <TableCell>{record.date}</TableCell>
                 <TableCell>{record.place}</TableCell>
                 <TableCell>{record.weather}</TableCell>
-                <TableCell><Box sx={{ display: 'inline-block', backgroundColor: 'error.main', color: "white", borderRadius: 3, width: "2em", textAlign: "center" }}>G1</Box> {record.raceTitle}</TableCell>
+                <TableCell>
+                    <Box sx={{ 
+                        display: 'inline-block', 
+                        backgroundColor: 'error.main', 
+                        color: "white",
+                        borderRadius: 3, 
+                        width: "2em", 
+                        textAlign: "center" 
+                    }}>
+                      G1
+                    </Box>
+                    <Box sx={{ display: 'inline-block', paddingLeft: '10px' }}>
+                      {record.raceTitle}
+                    </Box>
+                </TableCell>
                 <TableCell>{record.fieldType}</TableCell>
                 <TableCell>{record.distance}</TableCell>
                 <TableCell>{record.frameNumber}</TableCell>
@@ -63,8 +73,6 @@ export default function BasicTable(props) {
             ))}
           </TableBody>
         </Table>
-      </TableContainer >
-    </Box>
-
-  )
+      </TableContainer>
+  );
 }
